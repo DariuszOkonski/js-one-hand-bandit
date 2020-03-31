@@ -27,3 +27,64 @@ body {
   background: $violet;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.container {
+  padding: 1rem;
+  min-height: 100vh;
+  background-color: rgb(59, 56, 56);
+
+  .text-center {
+    text-transform: uppercase;
+  }
+
+  .card-deck {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+
+    .card {
+      background-color: red;
+      height: 15vh;
+    }
+  }
+
+  .input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .input-group {
+      width: 90%;
+
+      input,
+      button {
+        font-size: 1rem;
+      }
+    }
+
+
+    @media(min-width: 900px) {
+      .input-group {
+        width: 70%;
+
+        .btn {
+          width: 150px;
+          text-transform: uppercase;
+        }
+
+        input,
+        button {
+          font-size: 2rem;
+        }
+
+        input {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .card {
+    font-size: 1.4rem;
+  }
+}
