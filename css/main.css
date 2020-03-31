@@ -331,4 +331,48 @@ body {
   background: #000;
   font-family: Arial, Helvetica, sans-serif; }
 
+.container {
+  padding: 1rem;
+  min-height: 100vh;
+  background-color: #3b3838; }
+  .container .text-center {
+    text-transform: uppercase; }
+  .container .card-deck {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[3];
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem; }
+    .container .card-deck .card {
+      background-color: red;
+      height: 15vh; }
+  .container .input-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    .container .input-container .input-group {
+      width: 90%; }
+      .container .input-container .input-group input,
+      .container .input-container .input-group button {
+        font-size: 1rem; }
+    @media (min-width: 900px) {
+      .container .input-container .input-group {
+        width: 70%; }
+        .container .input-container .input-group .btn {
+          width: 150px;
+          text-transform: uppercase; }
+        .container .input-container .input-group input,
+        .container .input-container .input-group button {
+          font-size: 2rem; }
+        .container .input-container .input-group input {
+          text-align: center; } }
+  .container .card {
+    font-size: 1.4rem; }
+
 /*# sourceMappingURL=main.css.map */
