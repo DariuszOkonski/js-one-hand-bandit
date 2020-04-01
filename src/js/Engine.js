@@ -5,6 +5,7 @@ class Engine {
     this.colors = new Colors();
     this.cardColors = document.querySelectorAll('.card-deck .card');
     this.btnRoll = document.getElementById('btn-roll').addEventListener('click', (e) => this.rollEngine(e));
+    this.btnReset = document.getElementById('btn-reset').addEventListener('click', (e) => this.reset(e));
 
     this.render();
   }
@@ -23,11 +24,14 @@ class Engine {
   rollEngine(e) {
     this.setRandomColors();
 
-    console.log(this.colors.colors[0], this.colors.colors[1], this.colors.colors[2])
-
     this.render();
   }
 
+  reset(e) {
+    this.colors = new Colors();
+
+    this.render();
+  }
 
   setRandomColors() {
     const colors = ['red', 'green', 'blue'];
