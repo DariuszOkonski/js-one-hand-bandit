@@ -19,4 +19,4 @@ if ('serviceWorker' in navigator) {
 import Engine from './Engine';
 
 const engine = new Engine();
-console.log(engine)
+// console.log(engine)
