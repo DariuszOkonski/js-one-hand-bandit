@@ -18,6 +18,7 @@ class Engine {
     this.render();
   }
 
+  // render methods
   render() {
     this.renderCardColors();
     this.renderWallet();
@@ -32,15 +33,15 @@ class Engine {
   renderWallet() {
     document.getElementById('wallet').textContent = this.wallet.getAmount();
   }
-  ///======================================
+  ///click event methods
   rollEngine(e) {
     this.bid = this.getMoney(e);
-    console.log(this.bid)
     if (this.bid === undefined)
       return;
 
     this.wallet.removeFromAmount(this.bid);
 
+    this.checkCurrentPlay(this.colors.getColorsTable(), this.bid)
 
     this.render();
   }
@@ -51,6 +52,14 @@ class Engine {
     this.bid = 0;
 
     this.render();
+  }
+
+  // additional methods
+  checkCurrentPlay(drawArray, amount) {
+    console.log(drawArray);
+    console.log(amount);
+
+    console.log('checkCurrentPlay')
   }
 
   getMoney(e) {
