@@ -18,6 +18,11 @@ class Colors {
       this.colors[i].changeColor(arr[i]);
     }
   }
+
+  getColorsTable() {
+    const colorsTable = [this.colors[0].color, this.colors[1].color, this.colors[2].color];
+    return colorsTable;
+  }
 }
 
 export default Colors;
