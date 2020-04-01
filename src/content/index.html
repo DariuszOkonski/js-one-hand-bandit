@@ -40,8 +40,8 @@
 
     <div class="input-container">
       <div class="input-group my-4">
-        <input type="number" min="0" class="form-control" id="money-input" placeholder="Place money..." aria-label="Recipient's username"
-          aria-describedby="button-addon2">
+        <input type="number" min="0" class="form-control" id="money-input" placeholder="Place money..."
+          aria-label="Recipient's username" aria-describedby="button-addon2">
         <div class="input-group-append">
           <button class="btn btn-outline-secondary" id="btn-roll" type="button">Roll</button>
           <button class="btn btn-outline-secondary" id="btn-reset" type="button">Reset</button>
@@ -54,12 +54,12 @@
         Your Wallet: $<span id="wallet">0</span>
       </div>
       <div class="card-header bg-secondary text-light">
-        Current Score: <span>You lost $0</span>
+        Current Score: <span id="current-score">You lost $0</span>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Games: <span>0</span></li>
-        <li class="list-group-item">Won Games: <span>0</span></li>
-        <li class="list-group-item">Lost Games: <span>0</span></li>
+        <li class="list-group-item">Games: <span id="games">0</span></li>
+        <li class="list-group-item">Won Games: <span id="won-games">0</span></li>
+        <li class="list-group-item">Lost Games: <span id="lost-games">0</span></li>
       </ul>
     </div>
 
