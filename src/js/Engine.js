@@ -1,19 +1,26 @@
 import Colors from './Colors';
 import Wallet from './Wallet';
+import Statistics from './Statistics';
 
 const START_AMOUNT = 200;
 
 class Engine {
   constructor() {
     this.colors = new Colors();
-    this.wallet = new Wallet(START_AMOUNT)
+    this.wallet = new Wallet(START_AMOUNT);
+    this.statistics = new Statistics();
     this.bid = 0;
 
-    this.cardColors = document.querySelectorAll('.card-deck .card');
     this.btnRoll = document.getElementById('btn-roll').addEventListener('click', (e) => this.rollEngine(e));
     this.btnReset = document.getElementById('btn-reset').addEventListener('click', (e) => this.reset(e));
-    this.moneyInput = document.getElementById('money-input');
 
+    this.moneyInput = document.getElementById('money-input');
+    this.cardColors = document.querySelectorAll('.card-deck .card');
+    this.walletDiv = document.getElementById('wallet');
+    this.currentScoreSpan = document.getElementById('current-score');
+    this.gamesSpan = document.getElementById('games');
+    this.wonGamesSpan = document.getElementById('won-games');
+    this.lostGamesSpan = document.getElementById('lost-games');
 
     this.render();
   }
@@ -22,6 +29,7 @@ class Engine {
   render() {
     this.renderCardColors();
     this.renderWallet();
+    this.renderStatistics();
   }
 
   renderCardColors() {
@@ -31,7 +39,14 @@ class Engine {
   }
 
   renderWallet() {
-    document.getElementById('wallet').textContent = this.wallet.getAmount();
+    this.walletDiv.textContent = this.wallet.getAmount();
+  }
+
+  renderStatistics() {
+    this.currentScoreSpan.textContent = this.statistics.currentScore;
+    this.gamesSpan.textContent = this.statistics.games;
+    this.wonGamesSpan.textContent = this.statistics.wonGames;
+    this.lostGamesSpan.textContent = this.statistics.lostGames;
   }
   ///click event methods
   rollEngine(e) {
@@ -49,6 +64,7 @@ class Engine {
   reset(e) {
     this.colors = new Colors();
     this.wallet = new Wallet(START_AMOUNT);
+    this.statistics = new Statistics();
     this.bid = 0;
 
     this.render();
@@ -59,6 +75,8 @@ class Engine {
     console.log(drawArray);
     console.log(amount);
 
+
+    console.log(this.statistics)
     console.log('checkCurrentPlay')
   }
 
