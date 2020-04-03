@@ -1,9 +1,12 @@
-# wtf-gulp-starter
+![One-Hand-Bandit Game](src/assets/img/github.png)
+# One-Hand-Bandit Game
 
-`npm install -g gulp-cli`
+This game has been created at javascript. It is a simple one hand bandit game. Just make a bet and roll. If you draw three matching colors or three different one you won, in the other case you lost. To play again just press reset button.
 
-`npm install`
+## Tools & Technology used
 
-`gulp`
-
-To publish your page using github pages use `npm run deploy`
+- Visual Studio Code
+- JavaScript
+- HTML
+- SCSS
+- Gulp
