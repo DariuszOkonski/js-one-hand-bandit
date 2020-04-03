@@ -50,6 +50,12 @@ class Engine {
   }
   ///click event methods
   rollEngine(e) {
+    if (this.wallet.getAmount() === 0) {
+      alert('Your wallet is empty, This is OVER');
+      this.moneyInput.value = '0';
+      return;
+    }
+
     this.bid = this.getMoney(e);
     if (this.bid === undefined)
       return;
@@ -72,33 +78,44 @@ class Engine {
 
   // additional methods
   checkCurrentPlay(drawArray, amount) {
-    let reward = 0;
+    let rate = 0;
     let wins = 0;
-    let losses = 0;
 
 
     if (drawArray[0] === 'red' && drawArray[1] === 'red' && drawArray[2] === 'red') {
-      reward = 1.5;
+      rate = 1.5;
       wins++;
     } else if (drawArray[0] === 'green' && drawArray[1] === 'green' && drawArray[2] === 'green') {
-      reward = 2;
+      rate = 2;
       wins++;
     } else if (drawArray[0] === 'blue' && drawArray[1] === 'blue' && drawArray[2] === 'blue') {
-      reward = 2.5
+      rate = 2.5
       wins++;
     } else if (drawArray[0] !== drawArray[1] && drawArray[1] !== drawArray[2] && drawArray[2] !== drawArray[0]) {
-      reward = 3;
+      rate = 3;
       wins++;
     } else {
-      reward = 0;
-      losses = 1;
+      rate = 0;
     }
 
+    this.updateStatistics(amount, rate, wins);
 
-    console.log(reward, wins, losses);
-    console.log('=====================')
+    this.render();
+  }
 
-    //TODO
+  updateStatistics(amount, rate, wins) {
+    let walletValue = 0;
+    if (wins > 0) {
+      walletValue = Math.round(amount * rate) + amount;
+      this.statistics.currentScore = `You won $${walletValue}`;
+      this.statistics.wonGames++;
+    } else {
+      walletValue = 0;
+      this.statistics.currentScore = `You lost $${amount}`;
+      this.statistics.lostGames++;
+    }
+    this.statistics.games++;
+    this.wallet.addToAmount(walletValue);
   }
 
   getMoney(e) {
