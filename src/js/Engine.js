@@ -3,7 +3,6 @@ import Wallet from './Wallet';
 import Statistics from './Statistics';
 
 const START_AMOUNT = 200;
-
 class Engine {
   constructor() {
     this.colors = new Colors();
@@ -35,7 +34,7 @@ class Engine {
   renderCardColors() {
     this.cardColors.forEach((card, i) => {
       card.style.backgroundColor = this.colors.colors[i].getColor();
-    })
+    });
   }
 
   renderWallet() {
@@ -48,6 +47,8 @@ class Engine {
     this.wonGamesSpan.textContent = this.statistics.wonGames;
     this.lostGamesSpan.textContent = this.statistics.lostGames;
   }
+
+
   ///click event methods
   rollEngine(e) {
     if (this.wallet.getAmount() === 0) {
