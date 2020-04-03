@@ -72,12 +72,31 @@ class Engine {
 
   // additional methods
   checkCurrentPlay(drawArray, amount) {
-    console.log(drawArray);
-    console.log(amount);
+    let reward = 0;
+    let wins = 0;
+    let losses = 0;
 
 
-    console.log(this.statistics)
-    console.log('checkCurrentPlay')
+    if (drawArray[0] === 'red' && drawArray[1] === 'red' && drawArray[2] === 'red') {
+      reward = 1.5;
+      wins++;
+    } else if (drawArray[0] === 'green' && drawArray[1] === 'green' && drawArray[2] === 'green') {
+      reward = 2;
+      wins++;
+    } else if (drawArray[0] === 'blue' && drawArray[1] === 'blue' && drawArray[2] === 'blue') {
+      reward = 2.5
+      wins++;
+    } else if (drawArray[0] !== drawArray[1] && drawArray[1] !== drawArray[2] && drawArray[2] !== drawArray[0]) {
+      reward = 3;
+      wins++;
+    } else {
+      reward = 0;
+      losses = 1;
+    }
+
+
+    console.log(reward, wins, losses);
+    console.log('=====================')
 
     //TODO
   }
